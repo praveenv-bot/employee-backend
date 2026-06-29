@@ -18,13 +18,13 @@ const HeaderFilters = ({
 
   const downloadExcel = () => {
     window.open(
-      `http://localhost:5000/api/dashboard/reportexcel?userId=${selectedEmpId}&fromDate=${fromDate}&toDate=${toDate}`,
+      `https://employee-backend-0fnt.onrender.com/api/dashboard/reportexcel?userId=${selectedEmpId}&fromDate=${fromDate}&toDate=${toDate}`,
     );
   };
 
   const downloadPDF = () => {
     window.open(
-      `http://localhost:5000/api/dashboard/reportpdf?userId=${selectedEmpId}&fromDate=${fromDate}&toDate=${toDate}`,
+      `https://employee-backend-0fnt.onrender.com/api/dashboard/reportpdf?userId=${selectedEmpId}&fromDate=${fromDate}&toDate=${toDate}`,
     );
   };
 

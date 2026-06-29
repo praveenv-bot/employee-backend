@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import EditTaskModal from "../TaskHistory/EditTask";
-import TaskTable from "../TaskHistory/TaskTable";
+import EditTaskModal from "./EditTask";
+import TaskTable from "./TaskTable";
 import axios from "axios";
 import "../../styles/TaskHistory.css";
 import { toast, ToastContainer } from "react-toastify";
@@ -35,9 +35,12 @@ const TaskHistoryHome = () => {
       if (statusFilter !== "all") params.status = statusFilter;
       if (taskTypeFilter) params.taskType = taskTypeFilter;
 
-      const res = await axios.get("http://localhost:5000/api/task/filter", {
-        params,
-      });
+      const res = await axios.get(
+        "https://employee-backend-0fnt.onrender.com/api/task/filter",
+        {
+          params,
+        },
+      );
 
       setTasks(res.data.data);
     } catch (err) {
@@ -72,7 +75,7 @@ const TaskHistoryHome = () => {
       setUpdateError("");
 
       await axios.put(
-        `http://localhost:5000/api/task/update/${editingTask.id}`,
+        `https://employee-backend-0fnt.onrender.com/api/task/update/${editingTask.id}`,
         editingTask,
       );
       toast.success("Edited Detailed Saved Successfully!!");

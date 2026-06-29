@@ -20,7 +20,7 @@ const TodayEmployeeActivity = ({ selectedEmpId }) => {
       setLoading(true);
 
       const res = await axios.get(
-        "http://localhost:5000/api/dashboard/today-employee-activity",
+        "https://employee-backend-0fnt.onrender.com/api/dashboard/today-employee-activity",
         {
           params: {
             employeeId: selectedEmpId || 0,

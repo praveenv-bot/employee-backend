@@ -3,7 +3,9 @@ import axios from "axios";
 const DeleteTaskButton = ({ taskId, onSuccess }) => {
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:5000/api/task/delete/${taskId}`);
+      await axios.delete(
+        `https://employee-backend-0fnt.onrender.com/api/task/delete/${taskId}`,
+      );
 
       if (onSuccess) {
         onSuccess();

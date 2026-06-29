@@ -34,7 +34,9 @@ const Analytics = () => {
 
   const fetchEmployees = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/api/employee/list");
+      const res = await axios.get(
+        "https://employee-backend-0fnt.onrender.com/api/employee/list",
+      );
 
       setEmployees(res.data.employees || []);
 
@@ -51,7 +53,7 @@ const Analytics = () => {
   const fetchDailyActivity = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/dashboard/daily-employee-activity",
+        "https://employee-backend-0fnt.onrender.com/api/dashboard/daily-employee-activity",
         {
           params: {
             fromDate,
@@ -73,7 +75,7 @@ const Analytics = () => {
   const fetchSummary = async () => {
     try {
       const res = await axios.get(
-        "http://localhost:5000/api/dashboard/summary",
+        "https://employee-backend-0fnt.onrender.com/api/dashboard/summary",
         {
           params: {
             role: "employee",

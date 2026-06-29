@@ -5,7 +5,7 @@ import { FaEye, FaPlay, FaCheck, FaEdit } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const API = "http://localhost:5000/api/managertasks";
+const API = "https://employee-backend-0fnt.onrender.com/api/managertasks";
 
 const EmployeeTasks = () => {
   const user = JSON.parse(localStorage.getItem("user"));

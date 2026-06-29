@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import Sidebar from "../pages/Sidebar";
-import MyTasks from "../pages/MyTasks";
-import TaskHistory from "../pages/TaskHistory/TaskHistory";
-import Analytics from "../pages/Analytics/Analytics";
-import ManageEmp from "../pages/ManagerPages/ManageUsers";
-import ManagerTask from "../pages/ManagerTasks/ManagertaskCreate";
-import Emptasks from "../pages/ManagerTasks/Emptasks";
+import Sidebar from "./Sidebar";
+import MyTasks from "./MyTasks";
+import TaskHistory from "./TaskHistory/TaskHistory";
+import Analytics from "./Analytics/Analytics";
+import ManageEmp from "./ManagerPages/ManageUsers";
+import ManagerTask from "./ManagerTasks/ManagertaskCreate";
+import Emptasks from "./ManagerTasks/Emptasks";
 
 import "../styles/Dashboard.css";
 

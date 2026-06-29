@@ -8,7 +8,7 @@ export const useTasks = (employeeId) => {
   const fetchTasks = async () => {
     try {
       const res = await axios.get(
-        `http://localhost:5000/api/fetchtasks/employee/${employeeId}`,
+        `https://employee-backend-0fnt.onrender.com/api/fetchtasks/employee/${employeeId}`,
       );
 
       setTasks(res.data.data || []);

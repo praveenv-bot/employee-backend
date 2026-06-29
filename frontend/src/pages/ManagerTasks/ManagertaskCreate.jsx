@@ -6,8 +6,8 @@ import { MdCancel } from "react-icons/md";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const API = "http://localhost:5000/api/managertasks";
-const EMP_API = "http://localhost:5000/api/employee/list";
+const API = "https://employee-backend-0fnt.onrender.com/api/managertasks";
+const EMP_API = "https://employee-backend-0fnt.onrender.com/api/employee/list";
 
 const emptyForm = {
   employeeId: "",
