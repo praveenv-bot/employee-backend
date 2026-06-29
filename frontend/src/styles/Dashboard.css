@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --primary-red: #f4143d;
+  --primary-red-dark: #d80e34;
+  --text-dark: #2f3f5f;
+}
+
+body {
+  background: #f8f8f8;
+  font-family: "Poppins", sans-serif;
+  color: #344563;
+}
+
+.excel-btn {
+  background: #22c55e;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.pdf-btn {
+  background: #ef4444;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+/* MAIN LAYOUT */
+.dashboard {
+  display: flex;
+  min-height: 100vh;
+  background: #f8f8f8;
+}
+
+.content {
+  flex: 1;
+  padding: 40px;
+}
+
+/* PAGE HEADER (shared) */
+.page-header {
+  margin-bottom: 30px;
+}
+
+.page-header h1 {
+  font-size: 30px;
+  font-weight: 700;
+  color: #2f3f5f;
+}
+
+.page-header p {
+  color: #6f7d95;
+  margin-top: 8px;
+}
+
+/* CARD (shared) */
+.card {
+  background: white;
+  border-radius: 20px;
+  padding: 20px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.05);
+  border: 1px solid #f0f0f0;
+  margin-bottom: 35px;
+}
+
+/* BUTTON */
+.save-btn {
+  background: #f4143d;
+  color: white;
+  border: none;
+  height: 40px;
+  padding: 0 28px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.save-btn:hover {
+  background: #d80e34;
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 12px;
+  border-radius: 8px;
+
+  border: none;
+  cursor: pointer;
+
+  font-weight: 600;
+  font-size: 13px;
+
+  transition: 0.25s ease;
+}
+
+/* EXCEL BUTTON */
+.icon-btn.excel {
+  background: #e8f8ee;
+  color: #16a34a;
+}
+
+.icon-btn.excel:hover {
+  background: #16a34a;
+  color: #fff;
+}
+
+/* PDF BUTTON */
+.icon-btn.pdf {
+  background: #fdecec;
+  color: #dc2626;
+}
+
+.icon-btn.pdf:hover {
+  background: #dc2626;
+  color: #fff;
+}
+
+/* ALIGN PROPERLY */
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}

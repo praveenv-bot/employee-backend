@@ -1,0 +1,254 @@
+/* ================= PAGE ================= */
+
+.users-page {
+  padding: 20px;
+}
+
+/* ================= HEADER ================= */
+
+.users-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 18px;
+}
+
+.users-header h2 {
+  margin: 0;
+  color: #2f3f5f;
+}
+
+.users-header p {
+  margin-top: 4px;
+  color: #888;
+  font-size: 13px;
+}
+
+/* ================= BUTTON ================= */
+
+.add-btn {
+  border: none;
+  background: #f4143d;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.add-btn:hover {
+  background: #db1035;
+}
+
+/* ================= TABLE ================= */
+
+.table-wrapper {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #fff0f3;
+}
+
+th {
+  text-align: left;
+  padding: 14px;
+  color: #2f3f5f;
+}
+
+td {
+  padding: 14px;
+  border-top: 1px solid #f3f3f3;
+}
+
+/* ================= BADGES ================= */
+
+.badge-role {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.badge-role.employee {
+  background: #e8f5e9;
+  color: #2e7d32;
+}
+
+.badge-role.manager {
+  background: #fff0f3;
+  color: #f4143d;
+}
+
+/* ================= ACTION BUTTONS ================= */
+
+.edit-btn,
+.delete-btn {
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 6px;
+}
+
+.edit-btn {
+  background: #ffb300;
+  color: white;
+}
+
+.delete-btn {
+  background: #ef4444;
+  color: white;
+}
+
+/* ================= BODY LOCK WHEN MODAL OPEN ================= */
+
+.modal-open {
+  overflow: hidden;
+}
+
+/* ================= 🔥 MODAL OVERLAY (FIXED CENTER ISSUE) ================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 99999;
+
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* ================= MODAL BOX ================= */
+
+.modal {
+  width: 420px;
+  max-width: 100%;
+
+  background: #ffffff;
+  border-radius: 18px;
+
+  padding: 22px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  position: relative;
+
+  /* 🔥 PERFECT CENTER FIX */
+  transform: translateY(0);
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+
+  animation: modalPop 0.22s ease;
+}
+
+/* ================= TITLE ================= */
+
+.modal h3 {
+  margin: 0 0 8px;
+  color: #2f3f5f;
+}
+
+/* ================= INPUTS ================= */
+
+.modal input,
+.modal select {
+  height: 44px;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 0 12px;
+  outline: none;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.modal input:focus,
+.modal select:focus {
+  border-color: #f4143d;
+  box-shadow: 0 0 0 3px rgba(244, 20, 61, 0.1);
+}
+
+/* ================= ACTIONS ================= */
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 8px;
+}
+
+/* ================= BUTTONS ================= */
+
+.save-btn {
+  background: #f4143d;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.save-btn:hover {
+  background: #db1035;
+}
+
+.cancel-btn {
+  background: #ececec;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.cancel-btn:hover {
+  background: #ddd;
+}
+
+/* ================= EMPTY STATE ================= */
+
+.empty {
+  text-align: center;
+  color: #777;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 600px) {
+  .modal {
+    width: 95%;
+    padding: 18px;
+  }
+}

@@ -1,0 +1,63 @@
+.filter-select {
+  min-width: 150px;
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 190px;
+}
+
+.icon-btn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 55px;
+
+  padding: 14px 14px;
+  border-radius: 8px;
+
+  border: none;
+  cursor: pointer;
+
+  font-weight: 600;
+  font-size: 12px;
+
+  transition: 0.25s ease;
+}
+
+.icon-btn span {
+  text-align: center;
+  margin-right: 10px;
+}
+
+/* EXCEL BUTTON */
+.icon-btn.excel {
+  background: #e8f8ee;
+  color: #16a34a;
+}
+
+.icon-btn.excel:hover {
+  background: #16a34a;
+  color: #fff;
+}
+
+/* PDF BUTTON */
+.icon-btn.pdf {
+  background: #fdecec;
+  color: #dc2626;
+}
+
+.icon-btn.pdf:hover {
+  background: #dc2626;
+  color: #fff;
+}
+
+/* ALIGN PROPERLY */
+.filters {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
