@@ -207,20 +207,20 @@ exports.dashboardSummary = async (req, res) => {
     // Build trend from selected date range
     const engagementTrend = [];
 
-    let current = new Date(fromDate);
+    let currentDte = new Date(fromDate);
     const last = new Date(toDate);
 
-    while (current <= last) {
-      const formatted = current.toISOString().split("T")[0];
+    while (currentDte <= last) {
+      const formatted = currentDte.toISOString().split("T")[0];
 
       engagementTrend.push({
-        date: `${current.getDate()} ${current.toLocaleString("en-US", {
+        date: `${currentDte.getDate()} ${currentDte.toLocaleString("en-US", {
           month: "short",
         })}`,
         hours: Number((trendMap[formatted] || 0).toFixed(2)),
       });
 
-      current.setDate(current.getDate() + 1);
+      current.setDate(currentDte.getDate() + 1);
     }
 
     // -------------------- RESPONSE --------------------
