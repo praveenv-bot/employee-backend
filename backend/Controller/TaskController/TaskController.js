@@ -67,7 +67,7 @@ function calculateHours(startTime, endTime) {
 
 // CREATE TASK (AUTO USER ASSIGNMENT + DATE RANGE SUPPORT)
 exports.createTask = async (req, res) => {
-  console.log(req.body);
+  // console.log(req.body);
   try {
     const {
       loggedInUserId,

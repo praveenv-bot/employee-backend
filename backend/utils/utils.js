@@ -3,8 +3,10 @@ const nodemailer = require("nodemailer");
 const transporter = nodemailer.createTransport({
   service: "gmail",
   auth: {
-    user: process.env.EMAIL_USER,
-    pass: process.env.EMAIL_PASS,
+    // user: process.env.EMAIL_USER,
+    // pass: process.env.EMAIL_PASS,
+    user: "praveenv@vyaparapp.in",
+    pass: "nmzz tikt qxbv flwi",
   },
 });
 
@@ -27,7 +29,7 @@ const sendWelcomeMail = async ({ name, email, userId, password }) => {
 
         <br/>
         <p>Login here:</p>
-        <a href="http://localhost:3000" target="_blank">Go to Website</a>
+        <a href="https://employee-frontend-hwu4.vercel.app" target="_blank">Go to Website</a>
 
         <br/><br/>
         <p style="color:gray">Please change your password after login.</p>
