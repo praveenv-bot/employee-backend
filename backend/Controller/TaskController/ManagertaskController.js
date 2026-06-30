@@ -50,13 +50,13 @@ const createTask = async (req, res) => {
     });
 
     // ✅ SAFE EMAIL
-    if (employeeEmail) {
-      await sendTaskAssignedMail({
-        name: employeeName,
-        email: employeeEmail,
-        task,
-      });
-    }
+    // if (employeeEmail) {
+    //   await sendTaskAssignedMail({
+    //     name: employeeName,
+    //     email: employeeEmail,
+    //     task,
+    //   });
+    // }
 
     return res.status(201).json({
       success: true,
@@ -144,13 +144,13 @@ const updateTask = async (req, res) => {
     await task.update(req.body);
 
     // ✅ EMAIL AFTER UPDATE
-    if (task.employeeEmail || req.body.employeeEmail) {
-      await sendTaskUpdatedMail({
-        name: task.employeeName,
-        email: task.employeeEmail || req.body.employeeEmail,
-        task,
-      });
-    }
+    // if (task.employeeEmail || req.body.employeeEmail) {
+    //   await sendTaskUpdatedMail({
+    //     name: task.employeeName,
+    //     email: task.employeeEmail || req.body.employeeEmail,
+    //     task,
+    //   });
+    // }
 
     return res.json({
       success: true,
@@ -180,13 +180,13 @@ const deleteTask = async (req, res) => {
     }
 
     // ✅ EMAIL BEFORE DELETE
-    if (task.employeeEmail) {
-      await sendTaskDeletedMail({
-        name: task.employeeName,
-        email: task.employeeEmail,
-        taskTitle: task.title,
-      });
-    }
+    // if (task.employeeEmail) {
+    //   await sendTaskDeletedMail({
+    //     name: task.employeeName,
+    //     email: task.employeeEmail,
+    //     taskTitle: task.title,
+    //   });
+    // }
 
     await task.destroy();
 
@@ -223,13 +223,13 @@ const approveTask = async (req, res) => {
     });
 
     // ✅ EMAIL ON APPROVAL
-    if (task.employeeEmail) {
-      await sendTaskApprovedMail({
-        name: task.employeeName,
-        email: task.employeeEmail,
-        task,
-      });
-    }
+    // if (task.employeeEmail) {
+    //   await sendTaskApprovedMail({
+    //     name: task.employeeName,
+    //     email: task.employeeEmail,
+    //     task,
+    //   });
+    // }
 
     return res.json({
       success: true,

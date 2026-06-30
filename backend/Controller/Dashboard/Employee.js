@@ -173,23 +173,55 @@ exports.dashboardSummary = async (req, res) => {
 
     // -------------------- ENGAGEMENT TREND --------------------
 
+    // const trendMap = {};
+
+    // workTasks.forEach((t) => {
+    //   const date = t.startDate;
+    //   trendMap[date] = (trendMap[date] || 0) + Number(t.duration || 0);
+    // });
+
+    // const engagementTrend = Object.keys(trendMap).map((date) => {
+    //   const d = new Date(date);
+
+    //   return {
+    //     date: `${d.getDate()} ${d.toLocaleString("en-US", {
+    //       month: "short",
+    //     })}`,
+    //     hours: Number(trendMap[date].toFixed(2)),
+    //   };
+    // });
+
+    // =======================
+    // ENGAGEMENT TREND
+    // =======================
+
     const trendMap = {};
 
-    workTasks.forEach((t) => {
-      const date = t.startDate;
-      trendMap[date] = (trendMap[date] || 0) + Number(t.duration || 0);
+    // Sum hours by date
+    workTasks.forEach((task) => {
+      const date = task.startDate; // YYYY-MM-DD
+
+      trendMap[date] = (trendMap[date] || 0) + Number(task.duration || 0);
     });
 
-    const engagementTrend = Object.keys(trendMap).map((date) => {
-      const d = new Date(date);
+    // Build trend from selected date range
+    const engagementTrend = [];
 
-      return {
-        date: `${d.getDate()} ${d.toLocaleString("en-US", {
+    let current = new Date(fromDate);
+    const last = new Date(toDate);
+
+    while (current <= last) {
+      const formatted = current.toISOString().split("T")[0];
+
+      engagementTrend.push({
+        date: `${current.getDate()} ${current.toLocaleString("en-US", {
           month: "short",
         })}`,
-        hours: Number(trendMap[date].toFixed(2)),
-      };
-    });
+        hours: Number((trendMap[formatted] || 0).toFixed(2)),
+      });
+
+      current.setDate(current.getDate() + 1);
+    }
 
     // -------------------- RESPONSE --------------------
 
