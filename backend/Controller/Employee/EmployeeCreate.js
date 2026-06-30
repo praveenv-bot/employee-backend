@@ -31,6 +31,8 @@ exports.createEmployee = async (req, res) => {
       trainerCategory,
     });
 
+    console.log(newUser);
+
     // ✅ SEND WELCOME EMAIL
     try {
       await sendWelcomeMail({
