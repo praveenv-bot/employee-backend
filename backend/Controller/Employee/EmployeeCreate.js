@@ -31,20 +31,20 @@ exports.createEmployee = async (req, res) => {
       trainerCategory,
     });
 
-    console.log(newUser);
+    // console.log(newUser);
 
     // ✅ SEND WELCOME EMAIL
-    try {
-      await sendWelcomeMail({
-        name: newUser.name,
-        email: newUser.email,
-        userId: newUser.email, // or newUser.id if you want
-        password: newUser.password,
-      });
-      console.log(`email send successfully`);
-    } catch (mailErr) {
-      console.log("Mail Error:", mailErr.message);
-    }
+    // try {
+    //   await sendWelcomeMail({
+    //     name: newUser.name,
+    //     email: newUser.email,
+    //     userId: newUser.email, // or newUser.id if you want
+    //     password: newUser.password,
+    //   });
+    //   console.log(`email send successfully`);
+    // } catch (mailErr) {
+    //   console.log("Mail Error:", mailErr.message);
+    // }
 
     return res.status(201).json({
       success: true,
