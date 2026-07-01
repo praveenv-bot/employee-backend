@@ -14,6 +14,11 @@ const Task = sequelize.define(
       allowNull: false,
     },
 
+    subTask: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+
     department: {
       type: DataTypes.STRING,
       allowNull: true,
