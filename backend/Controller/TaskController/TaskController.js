@@ -92,6 +92,7 @@ exports.createTask = async (req, res) => {
       const day = current.getDay();
 
       let finalTaskType = taskType;
+      let finalSubTaskType = subTask;
       let finalDepartment = department;
       let finalSubDepartment = subDepartment;
       let finalStatus = status;
@@ -101,6 +102,7 @@ exports.createTask = async (req, res) => {
 
       if (day === 0) {
         finalTaskType = "sunday";
+        finalSubTaskType = "";
         finalDepartment = "";
         finalSubDepartment = "";
         finalStatus = "completed";
@@ -112,6 +114,7 @@ exports.createTask = async (req, res) => {
       tasksToCreate.push({
         userId: loggedInUserId,
         taskType: finalTaskType,
+        subTask: finalSubTaskType,
         department: finalDepartment,
         subDepartment: finalSubDepartment,
         status: finalStatus,
