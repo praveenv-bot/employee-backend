@@ -23,6 +23,8 @@ const calculateRemainingDays = (deadline) => {
 // CREATE TASK (Manager)
 // =========================
 const createTask = async (req, res) => {
+  // console.log("➡️ Create Task Started");
+
   try {
     const {
       employeeId,
@@ -48,6 +50,8 @@ const createTask = async (req, res) => {
       createdBy,
       status: "pending",
     });
+
+    // console.log("✅ Task Created");
 
     // ✅ SAFE EMAIL
     // if (employeeEmail) {

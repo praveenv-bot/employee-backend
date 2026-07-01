@@ -173,55 +173,23 @@ exports.dashboardSummary = async (req, res) => {
 
     // -------------------- ENGAGEMENT TREND --------------------
 
-    // const trendMap = {};
-
-    // workTasks.forEach((t) => {
-    //   const date = t.startDate;
-    //   trendMap[date] = (trendMap[date] || 0) + Number(t.duration || 0);
-    // });
-
-    // const engagementTrend = Object.keys(trendMap).map((date) => {
-    //   const d = new Date(date);
-
-    //   return {
-    //     date: `${d.getDate()} ${d.toLocaleString("en-US", {
-    //       month: "short",
-    //     })}`,
-    //     hours: Number(trendMap[date].toFixed(2)),
-    //   };
-    // });
-
-    // =======================
-    // ENGAGEMENT TREND
-    // =======================
-
     const trendMap = {};
 
-    // Sum hours by date
-    workTasks.forEach((task) => {
-      const date = task.startDate; // YYYY-MM-DD
-
-      trendMap[date] = (trendMap[date] || 0) + Number(task.duration || 0);
+    workTasks.forEach((t) => {
+      const date = t.startDate;
+      trendMap[date] = (trendMap[date] || 0) + Number(t.duration || 0);
     });
 
-    // Build trend from selected date range
-    const engagementTrend = [];
+    const engagementTrend = Object.keys(trendMap).map((date) => {
+      const d = new Date(date);
 
-    let currentDte = new Date(fromDate);
-    const last = new Date(toDate);
-
-    while (currentDte <= last) {
-      const formatted = currentDte.toISOString().split("T")[0];
-
-      engagementTrend.push({
-        date: `${currentDte.getDate()} ${currentDte.toLocaleString("en-US", {
+      return {
+        date: `${d.getDate()} ${d.toLocaleString("en-US", {
           month: "short",
         })}`,
-        hours: Number((trendMap[formatted] || 0).toFixed(2)),
-      });
-
-      current.setDate(currentDte.getDate() + 1);
-    }
+        hours: Number(trendMap[date].toFixed(2)),
+      };
+    });
 
     // -------------------- RESPONSE --------------------
 
