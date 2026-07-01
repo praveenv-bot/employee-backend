@@ -168,23 +168,100 @@ exports.downloadExcelReport = async (req, res) => {
       ["Sunday", sunday],
     ]);
     // ---------------- TASK DETAILS ----------------
+    // const taskSheet = workbook.addWorksheet("Task Details");
+
+    // taskSheet.columns = [
+    //   { header: "Date", key: "date", width: 15 },
+    //   { header: "Task Type", key: "type", width: 20 },
+    //   { header: "Status", key: "status", width: 15 },
+    //   { header: "Hours", key: "hours", width: 10 },
+    // ];
+
+    // taskSheet.getRow(1).eachCell((cell) => (cell.style = headerStyle));
+
+    // tasks.forEach((t) => {
+    //   taskSheet.addRow({
+    //     date: t.startDate,
+    //     type: t.taskType,
+    //     status: t.status,
+    //     hours: t.duration,
+    //   });
+    // });
+
+    // =====================================================
+    // TASK DETAILS
+    // =====================================================
+
     const taskSheet = workbook.addWorksheet("Task Details");
 
     taskSheet.columns = [
-      { header: "Date", key: "date", width: 15 },
-      { header: "Task Type", key: "type", width: 20 },
+      { header: "Task ID", key: "id", width: 10 },
+      { header: "User ID", key: "userId", width: 10 },
+      { header: "Task Type", key: "taskType", width: 22 },
+      { header: "Sub Task", key: "subTask", width: 30 },
+      { header: "Department", key: "department", width: 20 },
+      { header: "Sub Department", key: "subDepartment", width: 25 },
       { header: "Status", key: "status", width: 15 },
-      { header: "Hours", key: "hours", width: 10 },
+      { header: "Start Date", key: "startDate", width: 15 },
+      { header: "End Date", key: "endDate", width: 15 },
+      { header: "Start Time", key: "startTime", width: 15 },
+      { header: "End Time", key: "endTime", width: 15 },
+      { header: "Duration (Hours)", key: "duration", width: 18 },
+      { header: "Description", key: "description", width: 50 },
+      {
+        header: "Submission Description",
+        key: "submissionDescription",
+        width: 40,
+      },
+      { header: "Submission Link", key: "submissionLink", width: 45 },
+      { header: "Created At", key: "createdAt", width: 25 },
+      { header: "Updated At", key: "updatedAt", width: 25 },
     ];
 
-    taskSheet.getRow(1).eachCell((cell) => (cell.style = headerStyle));
+    // Header Style
+    taskSheet.getRow(1).eachCell((cell) => {
+      cell.style = headerStyle;
+    });
 
+    // Freeze Header
+    taskSheet.views = [
+      {
+        state: "frozen",
+        ySplit: 1,
+      },
+    ];
+
+    // Add Rows
     tasks.forEach((t) => {
       taskSheet.addRow({
-        date: t.startDate,
-        type: t.taskType,
+        id: t.id,
+        userId: t.userId,
+        taskType: t.taskType,
+        subTask: t.subTask || "",
+        department: t.department || "",
+        subDepartment: t.subDepartment || "",
         status: t.status,
-        hours: t.duration,
+        startDate: t.startDate,
+        endDate: t.endDate,
+        startTime: t.startTime || "",
+        endTime: t.endTime || "",
+        duration: Number(t.duration || 0),
+        description: t.description || "",
+        submissionDescription: t.submissionDescription || "",
+        submissionLink: t.submissionLink || "",
+        createdAt: t.createdAt,
+        updatedAt: t.updatedAt,
+      });
+    });
+
+    // Wrap Text + Alignment
+    taskSheet.eachRow((row) => {
+      row.eachCell((cell) => {
+        cell.alignment = {
+          vertical: "middle",
+          horizontal: "left",
+          wrapText: true,
+        };
       });
     });
 
