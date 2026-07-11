@@ -195,8 +195,6 @@ exports.downloadExcelReport = async (req, res) => {
     const taskSheet = workbook.addWorksheet("Task Details");
 
     taskSheet.columns = [
-      { header: "Task ID", key: "id", width: 10 },
-      { header: "User ID", key: "userId", width: 10 },
       { header: "Task Type", key: "taskType", width: 22 },
       { header: "Sub Task", key: "subTask", width: 30 },
       { header: "Department", key: "department", width: 20 },

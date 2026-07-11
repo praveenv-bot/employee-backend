@@ -120,8 +120,8 @@ exports.createTask = async (req, res) => {
         status: finalStatus,
         startDate: formatDate(current),
         endDate: formatDate(current),
-        startTime: finalStartTime,
-        endTime: finalEndTime,
+        startTime: finalStartTime || null,
+        endTime: finalEndTime || null,
         duration: calculateHours(finalStartTime, finalEndTime),
         description: finalDescription,
       });
@@ -148,7 +148,7 @@ exports.createTask = async (req, res) => {
 
     return res.status(500).json({
       success: false,
-      message: "Failed to create tasks",
+      message: err.message || "Internal Server Error",
       error: err.message,
     });
   }
