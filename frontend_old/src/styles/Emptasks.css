@@ -1,0 +1,304 @@
+/* ================= PAGE ================= */
+.emp-page {
+  padding: 20px;
+  background: #f6f7fb;
+  min-height: 100vh;
+}
+
+/* ================= HEADER ================= */
+.emp-header h2 {
+  margin: 0;
+}
+
+.emp-header p {
+  color: #777;
+  font-size: 13px;
+}
+
+/* ================= FILTER ================= */
+.emp-filters {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 15px 0;
+}
+
+.emp-filters select,
+.emp-filters input {
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  outline: none;
+}
+
+.emp-filters button {
+  background: #ed1a3b;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* ================= TABLE ================= */
+.emp-table table {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.emp-table th {
+  background: #f6dcdf;
+  padding: 12px;
+  text-align: left;
+  font-size: 13px;
+}
+
+.emp-table td {
+  padding: 12px;
+  border-top: 1px solid #eee;
+  font-size: 13px;
+}
+
+.overdue-row {
+  background: #fff5f5;
+}
+
+/* ================= BADGES ================= */
+.badge {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* FIXED CLEAN COLORS */
+/* ================= BADGE COLORS (IMPROVED CONTRAST) ================= */
+
+.badge.pending {
+  background: #fff3cd;
+  color: #8a6d1f;
+  border: 1px solid #ffe08a;
+}
+
+.badge.accepted {
+  background: #d1fae5;
+  color: #065f46;
+  border: 1px solid #34d399;
+}
+
+.badge.inprogress {
+  background: #ffedd5;
+  color: #9a3412;
+  border: 1px solid #fb923c;
+}
+
+.badge.completed {
+  background: #dbeafe;
+  color: #1e40af;
+  border: 1px solid #60a5fa;
+}
+
+.badge.approved {
+  background: #dcfce7;
+  color: #166534;
+  border: 1px solid #22c55e;
+}
+
+.badge.rejected {
+  background: #fee2e2;
+  color: #991b1b;
+  border: 1px solid #ef4444;
+}
+
+/* optional: nicer base badge */
+.badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 400;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* ================= ACTIONS ================= */
+.actions {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.actions button {
+  border: none;
+  padding: 6px 8px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: 0.2s;
+}
+
+.actions button:hover {
+  transform: scale(1.05);
+}
+
+.actions .view {
+  background: #3b82f6;
+  color: white;
+}
+
+.actions .accept {
+  background: #10b981;
+  color: white;
+}
+
+.actions .start {
+  background: #f59e0b;
+  color: white;
+}
+
+.actions .complete {
+  background: #22c55e;
+  color: white;
+}
+
+.actions .edit {
+  background: #8b5cf6;
+  color: white;
+}
+
+/* ================= MODAL ================= */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.modal-box {
+  background: white;
+  width: 420px;
+  max-width: 92%;
+  padding: 18px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  /* box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); */
+}
+
+/* TITLE */
+.modal-box h3 {
+  margin: 0 0 10px;
+  font-size: 16px;
+  font-weight: 500;
+  color: #111827;
+}
+
+/* LABEL */
+.modal-box label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #374151;
+  margin-top: 6px;
+}
+
+/* INPUTS */
+.modal-box input,
+.modal-box textarea {
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 13px;
+  outline: none;
+  transition: 0.2s;
+}
+
+.modal-box textarea {
+  min-height: 90px;
+  resize: none;
+}
+
+.modal-box input:focus,
+.modal-box textarea:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+/* ================= MODAL ACTIONS ================= */
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.modal-actions button {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 13px;
+  transition: 0.2s;
+}
+
+.modal-actions button:hover {
+  transform: translateY(-1px);
+}
+
+/* CANCEL */
+.modal-actions button:first-child {
+  background: #e5e7eb;
+  color: #111;
+}
+
+/* PRIMARY */
+.modal-actions button:last-child {
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: white;
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.25);
+}
+
+.view-button {
+  background: #f1f5f9;
+  color: #1f2937;
+  border: 1px solid #e5e7eb;
+  padding: 10px 16px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.view-button:hover {
+  background: #e2e8f0;
+  border-color: #cbd5e1;
+}
+/* ================= MISC ================= */
+.muted {
+  font-size: 12px;
+  color: #6b7280; /* cool gray (dashboard standard) */
+  margin-top: 2px;
+
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+
+  max-width: 180px; /* adjust based on your table */
+  display: block;
+}
+
+.overdue {
+  color: red;
+  font-weight: 600;
+}

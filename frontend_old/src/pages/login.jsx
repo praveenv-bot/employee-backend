@@ -4,8 +4,6 @@ import { useNavigate } from "react-router-dom";
 import Dashboard from "./Dashboard";
 import ManagerTasks from "./ManagerTasks/ManagertaskCreate";
 import axios from "axios";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -16,7 +14,7 @@ const Login = () => {
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    const loadingToast = toast.loading("Logging in please wait...");
+
     try {
       const response = await axios.post(
         "https://employee-backend-0fnt.onrender.com/api/auth/login",
@@ -25,8 +23,6 @@ const Login = () => {
           password,
         },
       );
-
-      toast.dismiss(loadingToast);
 
       // ✅ SAVE USER DATA HERE (FRONTEND ONLY)
       localStorage.setItem(
@@ -39,31 +35,20 @@ const Login = () => {
         }),
       );
 
-      navigate("/Dashboard");
-
-      toast.success(response?.data?.message || "Logged In Successfully", {
-        autoClose: 2000,
-      });
-
-      // if (user.role === "manager") {
-      //   navigate("/Dashboard");
-      // } else {
-      //   navigate("/Dashboard");
-      // }
+      if (user.role === "manager") {
+        navigate("/Dashboard");
+      } else {
+        navigate("/Dashboard");
+      }
     } catch (error) {
-      // const msg = error.response?.data?.message || "Login failed";
-      // alert(msg);
-      toast.error(error.response?.data?.message || "Sorry couln't logged in", {
-        autoClose: 2000,
-      });
+      const msg = error.response?.data?.message || "Login failed";
+      alert(msg);
       console.log(error.response);
     }
   };
 
   return (
     <div className="login-container">
-      <ToastContainer position="top-right" />
-
       <div className="login-card">
         <h2>Welcome Back 👋</h2>
         <p>Login to your Employee Dashboard</p>

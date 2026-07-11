@@ -9,7 +9,6 @@ const MyTasks = () => {
 
   const [formData, setFormData] = useState({
     taskType: "",
-    subTask: "",
     department: "",
     subDepartment: "",
     status: "pending",
@@ -27,90 +26,6 @@ const MyTasks = () => {
     support: ["technical_support", "customer_support"],
     ipt: ["ipt", "hunting", "farming", "Mo", "M1", "CA"],
     success: ["success"],
-    subtask: [],
-  };
-
-  const subTaskMap = {
-    refresher: [
-      "Product Training",
-      "Process Training",
-      "Refresher Training",
-      "TNI & TNA Training",
-      "Soft Skills Training",
-      "New Release Training",
-      "Tech Induction Product Training",
-      "KT Given",
-    ],
-
-    capability_building: [
-      "Courses Undertaken",
-      "New Skill Development",
-      "KT Taken",
-      "Training Attended",
-      "Batch Shadow",
-    ],
-
-    data_handling: [
-      "Reports",
-      "TNI Conducted",
-      "TNA Conducted",
-      "Assessment Evaluation",
-      "Quiz Making",
-      "Mails",
-      "Miscellaneous",
-    ],
-
-    meeting: [
-      "Internal Meeting",
-      "Client Meeting",
-      "Team Discussion",
-      "One-on-One",
-      "Review Meeting",
-    ],
-
-    training_delivery: [
-      "Product Training",
-      "Process Training",
-      "Soft Skills Training",
-      "New Hire Training",
-      "Refresher Training",
-    ],
-
-    floor_support: [
-      "Call Monitoring",
-      "Agent Support",
-      "Query Resolution",
-      "Escalation Support",
-    ],
-
-    content_development: [
-      "SOP Creation",
-      "PPT Preparation",
-      "Training Material",
-      "Knowledge Base",
-      "Documentation",
-    ],
-
-    calls_taken: ["Inbound Calls", "Outbound Calls", "Customer Follow-up"],
-
-    lms_work: [
-      "Course Upload",
-      "Course Update",
-      "Assessment Upload",
-      "Reports",
-    ],
-
-    others: [
-      "Events",
-      "Assessment Related",
-      "Quiz Making",
-      "Evaluation",
-      "Reports",
-      "TNI Conducted",
-      "TNA Conducted",
-      "Mails",
-      "Miscellaneous",
-    ],
   };
 
   const isSpecialTask = specialTaskTypes.includes(formData.taskType);
@@ -124,16 +39,8 @@ const MyTasks = () => {
         [name]: value,
       };
 
-      // if (name === "department") {
-      //   updated.subDepartment = "";
-      // }
-
       if (name === "department") {
         updated.subDepartment = "";
-      }
-
-      if (name === "taskType") {
-        updated.subTask = "";
       }
 
       return updated;
@@ -159,8 +66,7 @@ const MyTasks = () => {
       }
 
       const response = await axios.post(
-        "https://employee-backend-0fnt.onrender.com/api/task/create",
-        // "http://localhost:5000/api/task/create",
+        "http://localhost:5000/api/task/create",
         payload,
       );
 
@@ -170,7 +76,6 @@ const MyTasks = () => {
       });
       setFormData({
         taskType: "",
-        subTask: "",
         department: "",
         subDepartment: "",
         status: "pending",
@@ -220,25 +125,6 @@ const MyTasks = () => {
             <option value="leave">Leave</option>
             <option value="sunday">Sunday</option>
             <option value="others">Others</option>
-          </select>
-        </div>
-
-        {/* SUB TASK */}
-        <div className="form-group">
-          <label>Sub Task</label>
-          <select
-            name="subTask"
-            value={formData.subTask}
-            onChange={handleChange}
-            disabled={isSpecialTask || !subTaskMap[formData.taskType]?.length}
-          >
-            <option value="">Select Sub Task</option>
-
-            {(subTaskMap[formData.taskType] || []).map((item) => (
-              <option key={item} value={item}>
-                {item}
-              </option>
-            ))}
           </select>
         </div>
 

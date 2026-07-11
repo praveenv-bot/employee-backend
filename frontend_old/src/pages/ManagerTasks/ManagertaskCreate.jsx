@@ -6,183 +6,8 @@ import { MdCancel } from "react-icons/md";
 import { toast, ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const API = "https://employee-backend-0fnt.onrender.com/api/managertasks";
-
-const EMP_API = "https://employee-backend-0fnt.onrender.com/api/employee/list";
-
-// const emptyForm = {
-//   employeeId: "",
-//   employeeName: "",
-//   employeeEmail: "",
-//   taskType: "",
-//   title: "",
-//   description: "",
-//   assignedDate: "",
-//   deadline: "",
-//   createdBy: 1,
-// };
-
-// const AdminTasks = () => {
-//   const [tasks, setTasks] = useState([]);
-//   const [employees, setEmployees] = useState([]);
-
-//   const [showModal, setShowModal] = useState(false);
-//   const [showView, setShowView] = useState(false);
-
-//   const [editMode, setEditMode] = useState(false);
-//   const [selectedTask, setSelectedTask] = useState(null);
-
-//   const [form, setForm] = useState(emptyForm);
-
-//   const [filters, setFilters] = useState({
-//     status: "",
-//     employeeId: "",
-//     fromDate: "",
-//     toDate: "",
-//   });
-
-//   // ================= FETCH =================
-//   const fetchTasks = async () => {
-//     const res = await axios.get(`${API}/all`, { params: filters });
-//     setTasks(res.data.data);
-//   };
-
-//   const fetchEmployees = async () => {
-//     const res = await axios.get(EMP_API);
-//     setEmployees(res.data.employees || []);
-//   };
-
-//   useEffect(() => {
-//     fetchTasks();
-//     fetchEmployees();
-//   }, []);
-
-//   // ================= FILTER =================
-//   const handleFilter = (e) => {
-//     setFilters({ ...filters, [e.target.name]: e.target.value });
-//   };
-
-//   const applyFilter = () => fetchTasks();
-
-//   // ================= FORM =================
-//   const handleChange = (e) => {
-//     setForm({ ...form, [e.target.name]: e.target.value });
-//   };
-
-//   // ================= ADD =================
-//   const openAdd = () => {
-//     setForm(emptyForm);
-//     setEditMode(false);
-//     setShowModal(true);
-//   };
-
-//   // ================= EDIT =================
-//   const openEdit = (task) => {
-//     setForm(task);
-//     setEditMode(true);
-//     setShowModal(true);
-//   };
-
-//   // ================= SAVE =================
-//   const saveTask = async () => {
-//     const loadingToast = toast.loading("Saving task...");
-//     if (editMode) {
-//       await axios.put(`${API}/update/${form.id}`, form);
-
-//       toast.dismiss(loadingToast);
-//       toast.success("Task Created Successfully", {
-//         autoClose: 2000,
-//       });
-//     } else {
-//       await axios.post(`${API}/create`, form);
-//       toast.dismiss(loadingToast);
-//       toast.success("Task Created Successfully", {
-//         autoClose: 2000,
-//       });
-//     }
-
-//     setShowModal(false);
-//     fetchTasks();
-//   };
-
-//   // const saveTask = async () => {
-//   //   const loadingToast = toast.loading("Saving task...");
-
-//   //   try {
-//   //     if (editMode) {
-//   //       await axios.put(`${API}/update/${form.id}`, form);
-//   //       setShowModal(false);
-//   //       toast.update(loadingToast, {
-//   //         render: "Task Updated Successfully",
-//   //         type: "success",
-//   //         isLoading: false,
-//   //         autoClose: 2000,
-//   //       });
-//   //     } else {
-//   //       await axios.post(`${API}/create`, form);
-//   //       setShowModal(false);
-//   //       toast.update(loadingToast, {
-//   //         render: "Task Created Successfully",
-//   //         type: "success",
-//   //         isLoading: false,
-//   //         autoClose: 2000,
-//   //       });
-//   //     }
-
-//   //     setShowModal(false);
-//   //     fetchTasks();
-//   //   } catch (error) {
-//   //     console.error(error);
-
-//   //     toast.update(loadingToast, {
-//   //       render: error.response?.data?.message || "Failed to save task",
-//   //       type: "error",
-//   //       isLoading: false,
-//   //       autoClose: 3000,
-//   //     });
-//   //   }
-//   // };
-
-//   // ================= DELETE =================
-//   const deleteTask = async (id) => {
-//     const loadingToast = toast.loading("Saving task...");
-
-//     if (!window.confirm("Delete this task?")) return;
-//     await axios.delete(`${API}/delete/${id}`);
-//     toast.dismiss(loadingToast);
-//     toast.success("Task Deleted Successfully", {
-//       autoClose: 2000,
-//     });
-//     fetchTasks();
-//   };
-
-//   // ================= VIEW =================
-//   const openView = (task) => {
-//     setSelectedTask(task);
-//     setShowView(true);
-//   };
-
-//   // ================= APPROVE =================
-
-//   const approveTask = async (id, status) => {
-//     const loadingToast = toast.loading("Saving task...");
-//     try {
-//       await axios.put(`${API}/approve/${id}`, {
-//         status: status,
-//       });
-//       fetchTasks();
-
-//       toast.dismiss(loadingToast);
-//       toast.success("Task status updated success!!", {
-//         autoClose: 2000,
-//       });
-//     } catch (err) {
-//       console.log(err);
-//       toast.error(err || "Unable to delete the task!!", {
-//         autoClose: 2000,
-//       });
-//     }
-//   };
+const API = "http://localhost:5000/api/managertasks";
+const EMP_API = "http://localhost:5000/api/employee/list";
 
 const emptyForm = {
   employeeId: "",
@@ -215,70 +40,36 @@ const AdminTasks = () => {
     toDate: "",
   });
 
-  // ================= FETCH TASKS =================
-
+  // ================= FETCH =================
   const fetchTasks = async () => {
-    try {
-      const res = await axios.get(`${API}/all`, {
-        params: filters,
-      });
-
-      setTasks(res.data.data || []);
-    } catch (err) {
-      console.error(err);
-
-      toast.error(err.response?.data?.message || "Unable to fetch tasks");
-    }
+    const res = await axios.get(`${API}/all`, { params: filters });
+    console.log(res);
+    setTasks(res.data.data);
   };
-
-  // ================= FETCH EMPLOYEES =================
 
   const fetchEmployees = async () => {
-    try {
-      const res = await axios.get(EMP_API);
-
-      setEmployees(res.data.employees || []);
-    } catch (err) {
-      console.error(err);
-
-      toast.error(err.response?.data?.message || "Unable to fetch employees");
-    }
+    const res = await axios.get(EMP_API);
+    setEmployees(res.data.employees || []);
   };
 
-  // ================= INITIAL LOAD =================
-
   useEffect(() => {
-    const loadData = async () => {
-      await Promise.all([fetchTasks(), fetchEmployees()]);
-    };
-
-    loadData();
+    fetchTasks();
+    fetchEmployees();
   }, []);
 
   // ================= FILTER =================
-
   const handleFilter = (e) => {
-    setFilters({
-      ...filters,
-      [e.target.name]: e.target.value,
-    });
+    setFilters({ ...filters, [e.target.name]: e.target.value });
   };
 
-  const applyFilter = async () => {
-    await fetchTasks();
-  };
+  const applyFilter = () => fetchTasks();
 
   // ================= FORM =================
-
   const handleChange = (e) => {
-    setForm({
-      ...form,
-      [e.target.name]: e.target.value,
-    });
+    setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   // ================= ADD =================
-
   const openAdd = () => {
     setForm(emptyForm);
     setEditMode(false);
@@ -286,7 +77,6 @@ const AdminTasks = () => {
   };
 
   // ================= EDIT =================
-
   const openEdit = (task) => {
     setForm(task);
     setEditMode(true);
@@ -294,109 +84,40 @@ const AdminTasks = () => {
   };
 
   // ================= SAVE =================
-
-  // const saveTask = async () => {
-  //   const loadingToast = toast.loading("Saving task...");
-  //   setShowModal(false);
-
-  //   try {
-  //     if (editMode) {
-  //       const response = await axios.put(`${API}/update/${form.id}`, form);
-  //       toast.dismiss(loadingToast);
-  //       toast.success(response?.data?.message || "Task Updated Successfully", {
-  //         autoClose: 2000,
-  //       });
-  //     } else {
-  //       const response = await axios.post(`${API}/create`, form);
-  //       toast.dismiss(loadingToast);
-  //       toast.success(response?.data?.message || "Task Created Successfully", {
-  //         autoClose: 2000,
-  //       });
-  //     }
-
-  //     await fetchTasks();
-  //   } catch (err) {
-  //     console.error(err);
-
-  //     toast.error(err.response?.data?.message || "Failed to save task", {
-  //       autoClose: 3000,
-  //     });
-  //   }
-  // };
-
   const saveTask = async () => {
     const loadingToast = toast.loading("Saving task...");
-
-    console.log("1. Started");
+    if (editMode) {
+      await axios.put(`${API}/update/${form.id}`, form);
+      toast.dismiss(loadingToast);
+      toast.success("Task Created Successfully", {
+        autoClose: 2000,
+      });
+    } else {
+      await axios.post(`${API}/create`, form);
+      toast.dismiss(loadingToast);
+      toast.success("Task Created Successfully", {
+        autoClose: 2000,
+      });
+    }
 
     setShowModal(false);
-
-    try {
-      console.log("2. Before API");
-
-      let response;
-
-      if (editMode) {
-        response = await axios.put(`${API}/update/${form.id}`, form);
-      } else {
-        response = await axios.post(`${API}/create`, form);
-      }
-
-      console.log("3. API Finished");
-      console.log(response);
-
-      toast.dismiss(loadingToast);
-
-      console.log("4. Toast Dismissed");
-
-      toast.success(response?.data?.message);
-
-      console.log("5. Success Toast");
-
-      await fetchTasks();
-
-      console.log("6. Fetch Completed");
-    } catch (err) {
-      console.log("ERROR", err);
-
-      toast.dismiss(loadingToast);
-
-      toast.error(err.response?.data?.message || err.message);
-    }
+    fetchTasks();
   };
 
   // ================= DELETE =================
-
   const deleteTask = async (id) => {
+    const loadingToast = toast.loading("Saving task...");
+
     if (!window.confirm("Delete this task?")) return;
-
-    const loadingToast = toast.loading("Deleting task...");
-
-    try {
-      await axios.delete(`${API}/delete/${id}`);
-
-      await fetchTasks();
-
-      toast.update(loadingToast, {
-        render: "Task Deleted Successfully",
-        type: "success",
-        isLoading: false,
-        autoClose: 2000,
-      });
-    } catch (err) {
-      console.error(err);
-
-      toast.update(loadingToast, {
-        render: err.response?.data?.message || "Unable to delete task",
-        type: "error",
-        isLoading: false,
-        autoClose: 3000,
-      });
-    }
+    await axios.delete(`${API}/delete/${id}`);
+    toast.dismiss(loadingToast);
+    toast.success("Task Deleted Successfully", {
+      autoClose: 2000,
+    });
+    fetchTasks();
   };
 
   // ================= VIEW =================
-
   const openView = (task) => {
     setSelectedTask(task);
     setShowView(true);
@@ -405,29 +126,21 @@ const AdminTasks = () => {
   // ================= APPROVE =================
 
   const approveTask = async (id, status) => {
-    const loadingToast = toast.loading("Updating task...");
-
+    const loadingToast = toast.loading("Saving task...");
     try {
       await axios.put(`${API}/approve/${id}`, {
-        status,
+        status: status,
       });
+      fetchTasks();
 
-      await fetchTasks();
-
-      toast.update(loadingToast, {
-        render: "Task Status Updated Successfully",
-        type: "success",
-        isLoading: false,
+      toast.dismiss(loadingToast);
+      toast.success("Task status updated success!!", {
         autoClose: 2000,
       });
     } catch (err) {
-      console.error(err);
-
-      toast.update(loadingToast, {
-        render: err.response?.data?.message || "Unable to update task",
-        type: "error",
-        isLoading: false,
-        autoClose: 3000,
+      console.log(err);
+      toast.error(err || "Unable to delete the task!!", {
+        autoClose: 2000,
       });
     }
   };

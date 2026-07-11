@@ -1,0 +1,422 @@
+/* ================= PAGE WRAPPER ================= */
+
+.users-page {
+  padding: 20px;
+  background: #f7f8fc;
+}
+
+/* ================= HEADER ================= */
+
+.users-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 18px;
+}
+
+.users-header h2 {
+  margin: 0;
+  color: #2f3f5f;
+}
+
+.users-header p {
+  margin-top: 4px;
+  color: #888;
+  font-size: 13px;
+}
+
+/* ================= ADD BUTTON ================= */
+
+.add-btn {
+  border: none;
+  background: #f4143d;
+  color: white;
+  padding: 10px 16px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.add-btn:hover {
+  background: #db1035;
+}
+
+/* ================= FILTER BAR ================= */
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 16px;
+  background: white;
+  padding: 12px;
+  border-radius: 14px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+}
+
+.filter-bar select,
+.filter-bar input {
+  height: 38px;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 0 10px;
+  outline: none;
+  font-size: 13px;
+}
+
+.apply-btn {
+  background: #2f3f5f;
+  color: white;
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+.apply-btn:hover {
+  background: #1f2a44;
+}
+
+/* ================= TABLE WRAPPER ================= */
+
+.table-wrapper {
+  background: white;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.06);
+}
+
+/* ================= TABLE ================= */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background: #fff0f3;
+}
+
+th {
+  text-align: left;
+  padding: 14px;
+  color: #2f3f5f;
+  font-size: 13px;
+}
+
+td {
+  padding: 14px;
+  border-top: 1px solid #f3f3f3;
+  font-size: 13px;
+}
+
+/* ================= BADGES ================= */
+
+.badge-role {
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-weight: 600;
+  display: inline-block;
+}
+
+/* STATUS COLORS */
+
+.badge-role.pending {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.badge-role.inprogress {
+  background: #cfe2ff;
+  color: #084298;
+}
+
+.badge-role.completed {
+  background: #d1e7dd;
+  color: #0f5132;
+}
+
+.badge-role.approved {
+  background: #e2f7e1;
+  color: #146c43;
+}
+
+/* ================= ACTION BUTTONS ================= */
+
+.edit-btn,
+.delete-btn,
+.view-btn {
+  border: none;
+  padding: 7px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: 0.2s;
+}
+
+/* EDIT */
+.edit-btn {
+  background: #ffb300;
+  color: white;
+}
+
+.edit-btn:hover {
+  background: #e6a200;
+}
+
+/* VIEW */
+.view-btn {
+  background: #3b82f6;
+  color: white;
+}
+
+.view-btn:hover {
+  background: #2563eb;
+}
+
+/* DELETE */
+.delete-btn {
+  background: #ef4444;
+  color: white;
+}
+
+.delete-btn:hover {
+  background: #dc2626;
+}
+
+/* ================= MODAL OVERLAY ================= */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(6px);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 99999;
+
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+/* ================= MODAL BOX ================= */
+
+.modal {
+  width: 420px;
+  max-width: 100%;
+
+  background: #ffffff;
+  border-radius: 18px;
+
+  padding: 22px;
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+
+  animation: modalPop 0.22s ease;
+}
+
+/* ================= MODAL TITLE ================= */
+
+.modal h3 {
+  margin: 0 0 8px;
+  color: #2f3f5f;
+}
+
+/* ================= FORM LABELS ================= */
+
+.modal label {
+  font-size: 12px;
+  color: #666;
+  margin-top: 6px;
+}
+
+/* ================= INPUTS ================= */
+
+.modal input,
+.modal select,
+.modal textarea {
+  height: 42px;
+  border: 1px solid #e5e5e5;
+  border-radius: 10px;
+  padding: 0 12px;
+  outline: none;
+  font-size: 13px;
+  transition: 0.2s;
+  width: 100%;
+}
+
+.modal textarea {
+  height: 80px;
+  padding: 10px;
+  resize: none;
+}
+
+.modal input:focus,
+.modal select:focus,
+.modal textarea:focus {
+  border-color: #f4143d;
+  box-shadow: 0 0 0 3px rgba(244, 20, 61, 0.1);
+}
+
+/* ================= MODAL ACTIONS ================= */
+
+.modal-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* CANCEL BUTTON */
+
+.cancel-btn {
+  background: #ececec;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.cancel-btn:hover {
+  background: #ddd;
+}
+
+/* SAVE BUTTON */
+
+.save-btn {
+  background: #f4143d;
+  color: white;
+  border: none;
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.save-btn:hover {
+  background: #db1035;
+}
+
+/* ================= VIEW DETAILS ================= */
+
+.modal p {
+  margin: 6px 0;
+  font-size: 13px;
+  color: #444;
+}
+
+.modal a {
+  color: #3b82f6;
+  text-decoration: none;
+}
+
+/* ================= ANIMATION ================= */
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* ================= APPROVE BUTTON ================= */
+
+.approve-btn {
+  border: none;
+  padding: 7px 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-right: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  transition: 0.2s;
+
+  background: #10b981;
+  color: white;
+}
+
+.approve-btn:hover {
+  background: #059669;
+}
+
+/* ================= ACTION CELL ================= */
+
+.action-cell {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+/* ================= ICON BUTTON BASE ================= */
+
+.icon-btn {
+  border: none;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+  color: white;
+}
+
+/* ================= COLORS ================= */
+
+.icon-btn.edit {
+  background: #ffb300;
+}
+
+.icon-btn.view {
+  background: #3b82f6;
+}
+
+.icon-btn.delete {
+  background: #ef4444;
+}
+
+.icon-btn.approve {
+  background: #10b981;
+}
+
+/* ================= HOVER ================= */
+
+.icon-btn:hover {
+  transform: scale(1.1);
+  opacity: 0.9;
+}
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 600px) {
+  .modal {
+    width: 95%;
+    padding: 18px;
+  }
+
+  .filter-bar {
+    flex-direction: column;
+  }
+}
